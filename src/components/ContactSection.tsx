@@ -14,8 +14,6 @@ const ContactSection = () => {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -24,25 +22,17 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      service: '',
-      message: ''
-    });
-    
-    setIsSubmitting(false);
-    alert('Pesan Anda telah terkirim! Kami akan menghubungi Anda segera.');
+
+    const { name, email, phone, company, service, message } = formData;
+
+    const whatsappMessage = `Halo, saya ${name} dari ${company || '-'}.\nEmail: ${email}\nTelepon: ${phone}\nLayanan: ${service}\n\nPesan:\n${message}`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappURL = `https://wa.me/6281389745982?text=${encodedMessage}`;
+
+    window.open(whatsappURL, '_blank');
   };
 
   const contactInfo = [
@@ -123,6 +113,10 @@ const ContactSection = () => {
                 variant="secondary" 
                 size="lg"
                 className="bg-white text-primary hover:bg-gray-100"
+                onClick={() => {
+                  const message = encodeURIComponent("Halo, saya ingin konsultasi dengan tim PT Merpati Putih Global.");
+                  window.open(`https://wa.me/6281389745982?text=${message}`, '_blank');
+                }}
               >
                 Mulai Konsultasi
               </Button>
@@ -243,19 +237,9 @@ const ContactSection = () => {
                 variant="corporate" 
                 size="xl" 
                 className="w-full"
-                disabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Mengirim...
-                  </>
-                ) : (
-                  <>
-                    Kirim Pesan
-                    <Send className="w-5 h-5 ml-2" />
-                  </>
-                )}
+                Kirim Pesan
+                <Send className="w-5 h-5 ml-2" />
               </Button>
             </form>
 

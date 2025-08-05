@@ -29,7 +29,7 @@ const AboutSection = () => {
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed font-light">
                 PT Merpati Putih Global didirikan di Kabupaten Karawang pada tanggal 20 Desember 2020 
-                dengan No AHU058560.AH Tahun 2022 yang beralamat di JL. Manunggal VII, Kp Rawa Bagi 
+                dengan No AHU058560.AH Tahun 2020 yang beralamat di JL. Manunggal VII, Kp Rawa Bagi 
                 Kel Palumbonsari Kab Karawang.
               </p>
               <p className="text-gray-600 leading-relaxed">

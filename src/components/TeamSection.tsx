@@ -1,20 +1,20 @@
 import { Crown, UserCheck, Users, Star } from 'lucide-react';
 
 const TeamSection = () => {
- const teamMembers = [
-    {
-      name: "YUSRIL I M",
-      position: "Direktur Utama",
-      icon: Crown,
-      description: "Memimpin visi strategis perusahaan dan mengarahkan seluruh operasional PT. Merpati Putih Global Solution.",
-      level: "director"
-    },
+  const teamMembers = [
     {
       name: "FIKRI PERMANA",
       position: "Direktur", 
       icon: UserCheck,
       description: "Mengawasi operasional perusahaan dan memastikan implementasi strategi bisnis yang efektif.",
       level: "director"
+    },
+    {
+      name: "YUSRIL I M",
+      position: "Direktur Utama",
+      icon: Crown,
+      description: "Memimpin visi strategis perusahaan dan mengarahkan seluruh operasional PT. Merpati Putih Global Solution.",
+      level: "director-utama"
     },
     {
       name: "ALDO",
@@ -60,23 +60,27 @@ const TeamSection = () => {
     }
   ];
 
-  const getLevelColor = (level: string) => {
+  const getLevelColor = (level) => {
     switch (level) {
       case 'director':
-        return 'bg-gradient-primary text-white';
+        return 'bg-blue-600 text-white';
+      case 'director-utama':
+        return 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white';
       case 'manager':
-        return 'bg-primary/10 text-primary';
+        return 'bg-blue-50 text-blue-600 border border-blue-200';
       case 'staff':
-        return 'bg-corporate-gray-light text-corporate-gray-dark';
+        return 'bg-gray-100 text-gray-600';
       default:
         return 'bg-gray-100 text-gray-600';
     }
   };
 
-  const getLevelBadge = (level: string) => {
+  const getLevelBadge = (level) => {
     switch (level) {
       case 'director':
         return 'Direktur';
+      case 'director-utama':
+        return 'Direktur Utama';
       case 'manager':
         return 'Manager';
       case 'staff':
@@ -90,25 +94,25 @@ const TeamSection = () => {
     <section id="tim" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-corporate-gray-dark mb-4">
-            Struktur <span className="text-primary">Tim</span>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Struktur <span className="text-blue-600">Tim</span>
           </h2>
-          <p className="text-xl text-corporate-gray max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Tim profesional yang berpengalaman dan berkomitmen untuk memberikan 
             layanan terbaik bagi setiap klien dan mitra bisnis kami.
           </p>
         </div>
 
-        {/* Directors */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-corporate-gray-dark mb-8 text-center">
-            Jajaran Direktur
+        {/* Direktur */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
+            Direktur
           </h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="flex justify-center">
             {teamMembers.filter(member => member.level === 'director').map((member, index) => (
               <div
                 key={index}
-                className="bg-gradient-primary rounded-2xl p-8 text-white text-center shadow-corporate transform hover:scale-105 transition-all duration-300"
+                className="bg-blue-600 rounded-2xl p-8 text-white text-center shadow-lg transform hover:scale-105 transition-all duration-300 max-w-md"
               >
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6">
                   <member.icon className="w-10 h-10" />
@@ -121,28 +125,50 @@ const TeamSection = () => {
           </div>
         </div>
 
+        {/* Direktur Utama */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
+            Direktur Utama
+          </h3>
+          <div className="flex justify-center">
+            {teamMembers.filter(member => member.level === 'director-utama').map((member, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 text-white text-center shadow-xl transform hover:scale-105 transition-all duration-300 max-w-md"
+              >
+                <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 rounded-full mb-6">
+                  <member.icon className="w-12 h-12" />
+                </div>
+                <h4 className="text-2xl font-bold mb-2">{member.name}</h4>
+                <p className="text-xl opacity-90 mb-4">{member.position}</p>
+                <p className="text-sm opacity-80 leading-relaxed">{member.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Managers */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-corporate-gray-dark mb-8 text-center">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
             Tim Manager
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.filter(member => member.level === 'manager').map((member, index) => (
               <div
                 key={index}
-                className="bg-white border border-primary/20 rounded-xl p-6 text-center shadow-card-custom hover:shadow-corporate transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white border border-blue-200 rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <member.icon className="w-8 h-8 text-primary" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-full mb-4">
+                  <member.icon className="w-8 h-8 text-blue-600" />
                 </div>
                 <div className="mb-3">
-                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-2">
+                  <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full mb-2">
                     {getLevelBadge(member.level)}
                   </span>
                 </div>
-                <h4 className="text-lg font-semibold text-corporate-gray-dark mb-2">{member.name}</h4>
-                <p className="text-sm text-primary font-medium mb-3">{member.position}</p>
-                <p className="text-xs text-corporate-gray leading-relaxed">{member.description}</p>
+                <h4 className="text-lg font-semibold text-gray-800 mb-2">{member.name}</h4>
+                <p className="text-sm text-blue-600 font-medium mb-3">{member.position}</p>
+                <p className="text-xs text-gray-600 leading-relaxed">{member.description}</p>
               </div>
             ))}
           </div>
@@ -150,49 +176,49 @@ const TeamSection = () => {
 
         {/* Staff */}
         <div>
-          <h3 className="text-2xl font-semibold text-corporate-gray-dark mb-8 text-center">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
             Tim Staff
           </h3>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.filter(member => member.level === 'staff').map((member, index) => (
               <div
                 key={index}
-                className="bg-corporate-gray-light rounded-xl p-6 text-center shadow-card-custom hover:shadow-corporate transition-all duration-300"
+                className="bg-gray-50 rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 bg-white rounded-full mb-4">
-                  <member.icon className="w-7 h-7 text-corporate-gray-dark" />
+                  <member.icon className="w-7 h-7 text-gray-600" />
                 </div>
                 <div className="mb-3">
-                  <span className="inline-block px-3 py-1 bg-white text-corporate-gray-dark text-xs font-medium rounded-full mb-2">
+                  <span className="inline-block px-3 py-1 bg-white text-gray-600 text-xs font-medium rounded-full mb-2">
                     {getLevelBadge(member.level)}
                   </span>
                 </div>
-                <h4 className="text-lg font-semibold text-corporate-gray-dark mb-2">{member.name}</h4>
-                <p className="text-sm text-corporate-gray font-medium mb-3">{member.position}</p>
-                <p className="text-xs text-corporate-gray leading-relaxed">{member.description}</p>
+                <h4 className="text-lg font-semibold text-gray-800 mb-2">{member.name}</h4>
+                <p className="text-sm text-gray-600 font-medium mb-3">{member.position}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{member.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Team stats */}
-        <div className="mt-16 bg-gradient-section rounded-2xl p-8">
+        <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">2</div>
-              <div className="text-sm text-corporate-gray">Direktur</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">1</div>
+              <div className="text-sm text-gray-600">Direktur</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">4</div>
-              <div className="text-sm text-corporate-gray">Manager</div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">1</div>
+              <div className="text-sm text-gray-600">Direktur Utama</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">2</div>
-              <div className="text-sm text-corporate-gray">Staff</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">3</div>
+              <div className="text-sm text-gray-600">Manager</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">8</div>
-              <div className="text-sm text-corporate-gray">Total Tim</div>
+              <div className="text-3xl font-bold text-gray-600 mb-2">3</div>
+              <div className="text-sm text-gray-600">Staff</div>
             </div>
           </div>
         </div>
