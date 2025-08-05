@@ -4,13 +4,6 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: "FIKRI PERMANA",
-      position: "Direktur", 
-      icon: UserCheck,
-      description: "Mengawasi operasional perusahaan dan memastikan implementasi strategi bisnis yang efektif.",
-      level: "director"
-    },
-    {
-      name: "YUSRIL I M",
       position: "Direktur Utama",
       icon: Crown,
       description: "Memimpin visi strategis perusahaan dan mengarahkan seluruh operasional PT. Merpati Putih Global Solution.",
@@ -18,9 +11,16 @@ const TeamSection = () => {
     },
     {
       name: "ALDO",
-      position: "Manager Keuangan",
+      position: "Direktur", 
+      icon: UserCheck,
+      description: "Mengawasi operasional perusahaan dan memastikan implementasi strategi bisnis yang efektif.",
+      level: "director"
+    },
+    {
+      name: "YUSRIL I M",
+      position: "Manager",
       icon: Users,
-      description: "Mengelola sistem keuangan perusahaan dan memastikan kesehatan finansial yang optimal.",
+      description: "Mengkoordinasikan berbagai divisi dan memastikan kelancaran operasional harian perusahaan.",
       level: "manager"
     },
     {
@@ -103,30 +103,8 @@ const TeamSection = () => {
           </p>
         </div>
 
-        {/* Direktur */}
+        {/* Direktur Utama - Posisi Teratas */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
-            Direktur
-          </h3>
-          <div className="flex justify-center">
-            {teamMembers.filter(member => member.level === 'director').map((member, index) => (
-              <div
-                key={index}
-                className="bg-blue-600 rounded-2xl p-8 text-white text-center shadow-lg transform hover:scale-105 transition-all duration-300 max-w-md"
-              >
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6">
-                  <member.icon className="w-10 h-10" />
-                </div>
-                <h4 className="text-xl font-bold mb-2">{member.name}</h4>
-                <p className="text-lg opacity-90 mb-4">{member.position}</p>
-                <p className="text-sm opacity-80 leading-relaxed">{member.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Direktur Utama */}
-        <div className="mb-16">
           <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
             Direktur Utama
           </h3>
@@ -141,6 +119,28 @@ const TeamSection = () => {
                 </div>
                 <h4 className="text-2xl font-bold mb-2">{member.name}</h4>
                 <p className="text-xl opacity-90 mb-4">{member.position}</p>
+                <p className="text-sm opacity-80 leading-relaxed">{member.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Direktur - Di bawah Direktur Utama */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
+            Direktur
+          </h3>
+          <div className="flex justify-center">
+            {teamMembers.filter(member => member.level === 'director').map((member, index) => (
+              <div
+                key={index}
+                className="bg-blue-600 rounded-2xl p-8 text-white text-center shadow-lg transform hover:scale-105 transition-all duration-300 max-w-md"
+              >
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6">
+                  <member.icon className="w-10 h-10" />
+                </div>
+                <h4 className="text-xl font-bold mb-2">{member.name}</h4>
+                <p className="text-lg opacity-90 mb-4">{member.position}</p>
                 <p className="text-sm opacity-80 leading-relaxed">{member.description}</p>
               </div>
             ))}
@@ -205,12 +205,12 @@ const TeamSection = () => {
         <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">1</div>
-              <div className="text-sm text-gray-600">Direktur</div>
-            </div>
-            <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">1</div>
               <div className="text-sm text-gray-600">Direktur Utama</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">1</div>
+              <div className="text-sm text-gray-600">Direktur</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">3</div>
