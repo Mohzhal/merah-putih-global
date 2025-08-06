@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Linkedin } from 'lucide-react';
 import companyLogo from '@/assets/company-logo.png';
 
 const Footer = () => {
@@ -28,17 +28,21 @@ const Footer = () => {
               dan ketepatan pengiriman untuk kesuksesan perusahaan Anda.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
+              <a 
+                href="https://www.instagram.com/ptmerpatiputihglobal?igsh=MXBieXBxenYyZ2h1" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
+              <a 
+                href="https://www.linkedin.com/in/pt-merpati-putih-global-08173126b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300"
+              >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>
