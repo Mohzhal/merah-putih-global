@@ -14,7 +14,7 @@ const TeamSection = () => {
       level: "director-utama"
     },
     {
-      name: "ALDO",
+      name: "MUHAMAD ALDO SERENA",
       position: "Direktur", 
       icon: UserCheck,
       image: direkturImage,
@@ -43,26 +43,12 @@ const TeamSection = () => {
       level: "manager"
     },
     {
-      name: "FITRI DWIRATNASARI",
+      name: "AHMAD ANSORI",
       position: "Staff",
       icon: Star,
       description: "Mendukung operasional harian dan administrasi perusahaan dengan dedikasi tinggi.",
       level: "staff"
     },
-    {
-      name: "AGUNG PURNAMA",
-      position: "Staff",
-      icon: Star,
-      description: "Memberikan dukungan operasional dan membantu kelancaran berbagai aktivitas perusahaan.",
-      level: "staff"
-    },
-    {
-      name: "RICO M FIKRI",
-      position: "Staff",
-      icon: Star,
-      description: "Berperan aktif dalam mendukung operasional dan administrasi perusahaan.",
-      level: "staff"
-    }
   ];
 
   const getLevelColor = (level) => {
