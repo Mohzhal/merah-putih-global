@@ -43,6 +43,27 @@ const TeamSection = () => {
       level: "manager"
     },
     {
+      name: "FITRI DWIRATNASARI",
+      position: "Staff",
+      icon: Star,
+      description: "Mendukung operasional harian dan administrasi perusahaan dengan dedikasi tinggi.",
+      level: "staff"
+    },
+    {
+      name: "AGUNG PURNAMA",
+      position: "Staff",
+      icon: Star,
+      description: "Mendukung operasional harian dan administrasi perusahaan dengan dedikasi tinggi.",
+      level: "staff"
+    },
+    {
+      name: "RICO M FIKRI",
+      position: "Staff",
+      icon: Star,
+      description: "Mendukung operasional harian dan administrasi perusahaan dengan dedikasi tinggi.",
+      level: "staff"
+    },
+    {
       name: "AHMAD ANSORI",
       position: "Staff",
       icon: Star,
@@ -180,7 +201,7 @@ const TeamSection = () => {
           <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
             Tim Staff
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.filter(member => member.level === 'staff').map((member, index) => (
               <div
                 key={index}
@@ -218,7 +239,7 @@ const TeamSection = () => {
               <div className="text-sm text-gray-600">Manager</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-600 mb-2">3</div>
+              <div className="text-3xl font-bold text-gray-600 mb-2">4</div>
               <div className="text-sm text-gray-600">Staff</div>
             </div>
           </div>
