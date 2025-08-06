@@ -1,4 +1,7 @@
 import { Crown, UserCheck, Users, Star } from 'lucide-react';
+// Import images from assets folder
+import dirutImage from '../assets/dirut.jpg';
+import direkturImage from '../assets/direktur.jpg';
 
 const TeamSection = () => {
   const teamMembers = [
@@ -6,6 +9,7 @@ const TeamSection = () => {
       name: "FIKRI PERMANA",
       position: "Direktur Utama",
       icon: Crown,
+      image: dirutImage,
       description: "Memimpin visi strategis perusahaan dan mengarahkan seluruh operasional PT. Merpati Putih Global Solution.",
       level: "director-utama"
     },
@@ -13,6 +17,7 @@ const TeamSection = () => {
       name: "ALDO",
       position: "Direktur", 
       icon: UserCheck,
+      image: direkturImage,
       description: "Mengawasi operasional perusahaan dan memastikan implementasi strategi bisnis yang efektif.",
       level: "director"
     },
@@ -114,8 +119,13 @@ const TeamSection = () => {
                 key={index}
                 className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 text-white text-center shadow-xl transform hover:scale-105 transition-all duration-300 max-w-md"
               >
-                <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 rounded-full mb-6">
-                  <member.icon className="w-12 h-12" />
+                {/* Profile Image */}
+                <div className="mb-6">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/30 shadow-lg"
+                  />
                 </div>
                 <h4 className="text-2xl font-bold mb-2">{member.name}</h4>
                 <p className="text-xl opacity-90 mb-4">{member.position}</p>
@@ -136,8 +146,13 @@ const TeamSection = () => {
                 key={index}
                 className="bg-blue-600 rounded-2xl p-8 text-white text-center shadow-lg transform hover:scale-105 transition-all duration-300 max-w-md"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6">
-                  <member.icon className="w-10 h-10" />
+                {/* Profile Image */}
+                <div className="mb-6">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-28 h-28 rounded-full mx-auto object-cover border-4 border-white/30 shadow-lg"
+                  />
                 </div>
                 <h4 className="text-xl font-bold mb-2">{member.name}</h4>
                 <p className="text-lg opacity-90 mb-4">{member.position}</p>
