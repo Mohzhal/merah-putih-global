@@ -63,13 +63,6 @@ const TeamSection = () => {
       description: "Mendukung operasional harian dan administrasi perusahaan dengan dedikasi tinggi.",
       level: "staff"
     },
-    {
-      name: "AHMAD ANSORI",
-      position: "Staff",
-      icon: Star,
-      description: "Mendukung operasional harian dan administrasi perusahaan dengan dedikasi tinggi.",
-      level: "staff"
-    },
   ];
 
   const getLevelColor = (level) => {
